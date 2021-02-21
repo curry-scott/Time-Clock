@@ -1,47 +1,43 @@
-function myFunction() {
-    document.getElementById("button").innerHTML = "";
-  }
 
-setInterval(displayClock, 1000);
-
-//Showing time- hours, minutes, seconds and AM or PM
-function displayClock() {
-
-let currentTime = new Date();
-let hours = currentTime.getHours();
-let minutes = currentTime.getMinutes();
-let seconds = currentTime.getSeconds();
-let amOrPm = '';
+function displayTime() {
+    // define all the variables and give them a value
+    let clock = document.getElementById('time');
+    let time = new Date();
+    let hour = time.getHours();
+    let minute = time.getMinutes();
+    let second = time.getSeconds();
+    let amOrPm = 'AM';
 
 
-//AM or PM
-if (hours < 12) {
-    amOrPm = 'AM';
+    // Sets AM of PM
+    if (hour >= 12) {
+        amOrPm = 'PM';
+    }
+
+    // Sets to standard time
+    if(document.getElementById('stanTime').checked) {
+        if (hour > 12) {
+            hour = hour - 12;
+    }
+    }
+    if(document.getElementById('milTime').checked) {
+        amOrPm = '';
+    }
+    if (hour < 10) {
+        hour = "0" + hour;
+    }
+    if (minute < 10) {
+        hour = "0" + hour;
+    }
+    if (second < 10) {
+        second = "0" + second;
+    }
+       let timeNow = hour + ':' + minute + ':' + second + amOrPm;
+    
+    //bringing it all together
+    clock.innerHTML = timeNow;
 }
-else{
-    amOrPm = 'PM';
-}
+displayTime();
+setInterval(displayTime, 1000);
 
 
-
-
-//format hours, minutes and seconds
-if (hours < 10) {
-    hours = "0" + hours;
-}
-if (minutes < 10) {
-    minutes = "0" + minutes;
-}
-if (seconds < 10) {
-    seconds = "0" + seconds;
-}
-
-let timeNow = hours + ':' + minutes + ':' + seconds + amOrPm;
-
-//bringing it all together
-clock.innerHTML = timeNow;
-
-}
-
-//Time
-displayClock();

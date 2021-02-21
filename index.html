@@ -1,18 +1,18 @@
-<html>
+<html lang="en">
     <head>
-        <meta charset="utf-8">
-        <title>Time Clock</title>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="CSS/style.css">
+        <meta charset="UTF-8">
+        <title>Digital Clock</title>
     </head>
-  
-  
+    
     <body>
-        <div id="clock">00:00:00</div>
-        <div id="time"></div>
-          <button onclick="myFunction()">24-h</button>
-         <button onclick="myFunction()">12-h</button>
-         
-      
-        <script src='js/main.js'></script>
+        <div id="time">00:00:00</div>
+     <div class="clock">
+            <label for="stanTime">12-H</label><input id="stanTime" type="radio" name="timeFormat" value="stanTime" checked>
+            <label for="milTIme">24-H</label><input id="milTime" type="radio" name="timeFormat" value="uk">
+        </div>
+    
+     
     </body>
+    <script src="JS/main.js"></script>
 </html>
