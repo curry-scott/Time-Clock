@@ -1,10 +1,25 @@
-//Function will update the current time and injects it into the DOM- Document Object Model- 
-function updateClock() {
+setInterval(displayClock, 1000);
 
-    let now = new Date();  //get current time
-    let hours = now.getHours(); //gets hours
-    let minutes = now.getMinutes(); //gets minutes
-    let seconds = now.getSeconds(); //gets seconds
+//Showing time- hours, minutes, seconds and AM or PM
+function displayClock() {
+
+    let currentTime = new Date();
+    let hours = currentTime.getHours();
+    let minutes = currentTime.getMinutes();
+    let seconds = currentTime.getSeconds();
+    let amOrPm = '';
+    
+    
+   //AM or PM
+    if (hours < 12) {
+        amOrPm = 'AM';
+    }
+    else{
+        amOrPm = 'PM';
+    }
+    
+    
+
 
     //format hours, minutes and seconds
     if (hours < 10) {
@@ -17,11 +32,12 @@ function updateClock() {
         seconds = "0" + seconds;
     }
 
-    //gets the element we want to inject the clock into
-    let elem = document.getElementById('time');
+    let timeNow = hours + ':' + minutes + ':' + seconds + amOrPm;
+    
+    //bringing it all together
+    clock.innerHTML = timeNow;
+    
+}
 
-    //sets the elements inner HTML value to clock data
-    elem.innerHTML = hours + ':' + minutes + ':' + seconds;
-            }
-
-   
+//Time
+displayClock();
