@@ -1,6 +1,6 @@
 
 function displayTime() {
-    // define all the variables and give them a value
+    //Gives values to variables
     let clock = document.getElementById('time');
     let time = new Date();
     let hour = time.getHours();
@@ -9,16 +9,17 @@ function displayTime() {
     let amOrPm = 'AM';
 
 
-    // Sets AM of PM
+    //AM or PM
     if (hour >= 12) {
         amOrPm = 'PM';
     }
 
-    // Sets to standard time
+    //Sets standard time
     if(document.getElementById('stanTime').checked) {
         if (hour > 12) {
             hour = hour - 12;
     }
+    //Sets 2 digits 00:00:00AMPM
     }
     if(document.getElementById('milTime').checked) {
         amOrPm = '';
